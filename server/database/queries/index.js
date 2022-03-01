@@ -1,3 +1,4 @@
 const getData = require('./getData');
+const postData = require('./postData');
 
-module.exports = getData;
+module.exports = { getData, postData };
