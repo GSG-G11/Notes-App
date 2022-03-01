@@ -7,11 +7,11 @@ const router = require('./controllers');
 const app = express();
 
 app.use(compression());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(express.static(join(__dirname, '..', 'public')));
-app.set('port', process.env.PORT || 3030);
-
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(router);
+
+app.set('port', process.env.PORT || 3030);
 
 module.exports = app;
