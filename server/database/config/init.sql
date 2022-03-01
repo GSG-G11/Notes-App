@@ -1,38 +1,44 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users,notes CASCADE;
-CREATE TABLE users (
+DROP TABLE IF EXISTS categories,notes CASCADE;
+CREATE TABLE categories (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL
+    category VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE notes (
     id SERIAL PRIMARY KEY,
     title VARCHAR(125) NOT NULL,
     note TEXT NOT NULL,
-    users_id INT NOT NULL,
-    FOREIGN KEY (users_id) 
-    REFERENCES users(id) 
+    category_id INT NOT NULL,
+    FOREIGN KEY (category_id) 
+    REFERENCES categories(id) 
 );
 
-INSERT INTO users (name) VALUES 
+INSERT INTO categories (category) VALUES 
 (
-'Khaled'
+'javascript'
 ),
 (
-'Rand'
+'python'
+),
+(
+'php'
+),
+(
+'others'
 );
 
-INSERT INTO notes (title, note, users_id) VALUES 
+INSERT INTO notes (title, note, category_id) VALUES 
 (
-    'first note',
+    'first js note',
     'note1 note1 note1 note1 note1',
     '1'
 ),
 (
-    'second note',
+    'second js note',
     'note2 note2 note2 note2 note2',
-    '2'
+    '1'
 );
 
 COMMIT;
