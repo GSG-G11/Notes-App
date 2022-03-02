@@ -8,4 +8,12 @@ const getData = () => {
   return connection.query(sql);
 };
 
+// const getCategory = (id) => {
+//   const sql = {
+//     text: 'SELECT title, note FROM notes WHERE category_id=$1;',
+//     values: [id],
+//   };
+//   return connection.query(sql);
+// };
+// module.exports = { getData, getCategory };
 module.exports = getData;
