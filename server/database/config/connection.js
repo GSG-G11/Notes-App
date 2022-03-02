@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'test') {
   URL_DATABASE = process.env.DB_URL_TEST;
 } else {
   URL_DATABASE = process.env.DB_URL;
-};
+}
 
 if (!URL_DATABASE) {
   throw new Error({ message: 'Error when connect DataBase' });

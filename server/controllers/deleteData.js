@@ -1,12 +1,12 @@
 const { deleteData } = require('../database/queries');
 
 const deleteNote = (request, response) => {
-  console.log(request.params.id);
+  // eslint-disable-next-line no-console
   deleteData(request.params.id)
     .then(() => {
       response.redirect('/');
     })
-    .catch((err) => {
+    .catch(() => {
       response.json({ massage: 'server error!!!' });
     });
 };

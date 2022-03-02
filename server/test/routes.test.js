@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 const request = require('supertest');
 
@@ -43,7 +44,7 @@ describe('Test server endpoints', () => {
       .post('/addNote')
       .expect(302)
       .expect('content-type', /text/)
-      .send({ title: 'learnjs', noteContent: 'javascripte', category: '1' })
+      .send({ title: 'learning', noteContent: 'javascript', category: '1' })
       .end((err, res) => {
         if (err) return done(err);
         return done();

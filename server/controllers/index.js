@@ -1,3 +1,4 @@
+const { join } = require('path');
 const express = require('express');
 const { getNoteData, getCategoryData } = require('./getData');
 const postNoteData = require('./postData');
@@ -9,6 +10,10 @@ const addNoteHandle = require('./addNoteHandle');
 const router = express.Router();
 
 router.get('/addNotes', addNoteHandle);
+// html/addNote.html
+router.get('/', (request, response) => {
+  response.sendFile(join(__dirname, '..', 'public', 'index.html'));
+});
 router.get('/getData', getNoteData);
 router.get('/getJSCategory', getCategoryData);
 
