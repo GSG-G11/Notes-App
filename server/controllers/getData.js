@@ -1,18 +1,20 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 
-const { getData, getCategory  } = require('../database/queries');
+const { getData, getCategory } = require('../database/queries');
 const { serverError } = require('./error');
 
 const getNoteData = (request, response) => {
-  // eslint-disable-next-line no-console
-  getData().then((data) => data.rows)
+  getData().then((data) => response.json(data.rows))
     .catch(() => {
       serverError(response);
     });
 };
-// const getCategory = (request, response) => {
-//   // eslint-disable-next-line no-console
-// eslint-disable-next-line max-len
-//   getData().then((data) => console.log(data.rows)).catch((err) => response.status(500).json({ msg: 'Internal Server Error' }));
-// };
-module.exports = getNoteData;
+const getCategoryData = (request, response) => {
+  console.log('request', request.headers.value);
+  getCategory(request.headers.value).then((data) => response.json(data.rows))
+    .catch(() => {
+      serverError(response);
+    });
+};
+module.exports = { getNoteData, getCategoryData };
