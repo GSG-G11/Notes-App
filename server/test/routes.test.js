@@ -41,8 +41,8 @@ describe('Test server endpoints', () => {
   test('POST Route /addNote, status 200, content-type json', (done) => {
     request(app)
       .post('/addNote')
-      .expect(200)
-      .expect('Content-Type', /json/)
+      .expect(302)
+      .expect('content-type', /text/)
       .send({ title: 'learnjs', noteContent: 'javascripte', category: '1' })
       .end((err, res) => {
         if (err) return done(err);

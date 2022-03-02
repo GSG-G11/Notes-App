@@ -1,12 +1,19 @@
 require('env2')('.env');
 const { Pool } = require('pg');
 
-const { DB_URL } = process.env;
-if (!DB_URL) {
+let URL_DATABASE = '';
+
+if (process.env.NODE_ENV === 'test') {
+  URL_DATABASE = process.env.DB_URL_TEST;
+} else {
+  URL_DATABASE = process.env.DB_URL;
+};
+
+if (!URL_DATABASE) {
   throw new Error({ message: 'Error when connect DataBase' });
 }
 const connection = new Pool({
-  connectionString: DB_URL,
+  connectionString: URL_DATABASE,
   ssl: false,
 });
 

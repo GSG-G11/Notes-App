@@ -11,7 +11,6 @@ const getNoteData = (request, response) => {
     });
 };
 const getCategoryData = (request, response) => {
-  console.log('request', request.headers.value);
   getCategory(request.headers.value).then((data) => response.json(data.rows))
     .catch(() => {
       serverError(response);
