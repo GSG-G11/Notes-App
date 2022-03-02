@@ -1,20 +1,22 @@
 require('env2')('.env');
 const { Pool } = require('pg');
 
-let URL_DATABASE = '';
+let URL = '';
 
 if (process.env.NODE_ENV === 'test') {
-  URL_DATABASE = process.env.DB_URL_TEST;
+  URL = process.env.DB_URL_TEST;
+} else if (process.env.NODE_ENV === 'deploy') {
+  URL = process.env.DATABASE_URL;
 } else {
-  URL_DATABASE = process.env.DB_URL;
+  URL = process.env.DB_URL;
 }
 
-if (!URL_DATABASE) {
+if (!URL) {
   throw new Error({ message: 'Error when connect DataBase' });
 }
 const connection = new Pool({
-  connectionString: URL_DATABASE,
-  ssl: false,
+  connectionString: URL,
+  ssl: { rejectUnauthorized: false },
 });
 
 module.exports = connection;
