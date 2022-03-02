@@ -5,7 +5,7 @@ const pageNotFound = (req, res, next) => {
 };
 
 const serverError = (err, req, res, next) => {
-  res.status(500).sendFile(join(__dirname, '../../public/html/serverError.html'));
+  res.sendFile(join(__dirname, '../../public/html/serverError.html'));
 };
 
 module.exports = { pageNotFound, serverError };

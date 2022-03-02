@@ -14,6 +14,28 @@ describe('Test server endpoints', () => {
         return done();
       });
   });
+  // addNotes
+  test('GET Route /, status 200, content-type html', (done) => {
+    request(app)
+      .get('/addNotes')
+      .expect(200)
+      .expect('Content-Type', /html/)
+      .end((err, res) => {
+        if (err) return done(err);
+        return done();
+      });
+  });
+  // notFound
+  test('GET Route /, status 404, content-type html', (done) => {
+    request(app)
+      .get('/khaled')
+      .expect(404)
+      .expect('Content-Type', /html/)
+      .end((err, res) => {
+        if (err) return done(err);
+        return done();
+      });
+  });
   // POST
   test('POST Route /addNote, status 200, content-type json', (done) => {
     request(app)

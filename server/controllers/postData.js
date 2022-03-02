@@ -9,8 +9,8 @@ const postNoteData = (request, response) => {
       response.json(data);
       response.redirect('/');
     })
-    .catch(() => {
-      serverError(response);
+    .catch((err) => {
+      console.log(err);
     });
 };
 module.exports = postNoteData;
