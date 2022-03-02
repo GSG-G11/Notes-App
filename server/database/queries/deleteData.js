@@ -1,10 +1,10 @@
 /* eslint-disable camelcase */
 const connection = require('../config/connection');
 
-const deleteData = (note_id) => {
+const deleteData = (id) => {
   const sql = {
     text: 'DELETE FROM notes WHERE id=$1;',
-    values: [note_id],
+    values: [id],
   };
   return connection.query(sql);
 };

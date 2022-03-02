@@ -1,5 +1,14 @@
 /* eslint-disable no-unused-vars */
 
+const deleteNote = (id) => {
+  fetch(`/deleteData/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
+
 // Function To Render All The Data From The DB
 const fetchToGetAllData = () => {
   const dataCreation = document.querySelector('.data-creation');
@@ -22,6 +31,11 @@ const fetchToGetAllData = () => {
         deleteBtn.textContent = 'Delete';
         div.appendChild(deleteBtn);
         dataCreation.appendChild(div);
+
+        deleteBtn.onclick = () => {
+          deleteNote(data[i].id);
+          dataCreation.removeChild(div);
+        };
       }
     });
 };
@@ -47,6 +61,11 @@ const grtDataForSpecificCategory = (id) => {
         deleteBtn.textContent = 'Delete';
         div.appendChild(deleteBtn);
         dataCreation.appendChild(div);
+
+        deleteBtn.onclick = () => {
+          deleteNote(data[i].id);
+          dataCreation.removeChild(div);
+        };
       }
     });
 };
