@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
 const dataCreation = document.querySelector('.data-creation');
 const getAllData = document.querySelector('.getAllData');
+const getJavaScriptData = document.querySelector('.getJavaScriptData');
+
 console.log(22222222);
 
 fetch('/getData')
@@ -37,6 +39,24 @@ getAllData.addEventListener('click', () => {
         const category = document.createElement('div');
         category.textContent = data[i].category;
         div.appendChild(category);
+        const note = document.createElement('div');
+        note.textContent = data[i].note;
+        div.appendChild(note);
+        const title = document.createElement('div');
+        title.textContent = data[i].title;
+        div.appendChild(title);
+        dataCreation.appendChild(div);
+      }
+    });
+});
+getJavaScriptData.addEventListener('click', () => {
+  dataCreation.textContent = 'getJSCategory';
+  fetch('/getJSCategory')
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      for (let i = 0; i < data.length; i += 1) {
+        const div = document.createElement('div');
         const note = document.createElement('div');
         note.textContent = data[i].note;
         div.appendChild(note);

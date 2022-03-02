@@ -10,9 +10,11 @@ const getNoteData = (request, response) => {
       serverError(response);
     });
 };
-// const getCategory = (request, response) => {
-//   // eslint-disable-next-line no-console
-// eslint-disable-next-line max-len
-//   getData().then((data) => console.log(data.rows)).catch((err) => response.status(500).json({ msg: 'Internal Server Error' }));
-// };
-module.exports = getNoteData;
+const getCategoryData = (request, response) => {
+  // eslint-disable-next-line no-console
+  getCategory(4).then((data) => response.json(data.rows))
+    .catch(() => {
+      serverError(response);
+    });
+};
+module.exports = { getNoteData, getCategoryData };
