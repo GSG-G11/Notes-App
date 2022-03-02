@@ -1,4 +1,5 @@
 const { postData } = require('../database/queries');
+const { serverError } = require('./error');
 
 const postNoteData = (request, response) => {
   const { title, noteContent, category } = request.body;
@@ -8,7 +9,8 @@ const postNoteData = (request, response) => {
       response.json(data);
       response.redirect('/');
     })
-    .catch((error) => console.log(error));
+    .catch(() => {
+      serverError(response);
+    });
 };
-
 module.exports = postNoteData;
