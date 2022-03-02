@@ -16,7 +16,6 @@ const fetchToGetAllData = () => {
     .then((res) => res.json())
     .then((data) => {
       // eslint-disable-next-line prefer-destructuring
-      console.log(data);
       for (let i = 0; i < data.length; i += 1) {
         const div = document.createElement('div');
         const title = document.createElement('h1');
@@ -63,8 +62,8 @@ const grtDataForSpecificCategory = (id) => {
         div.appendChild(deleteBtn);
         dataCreation.appendChild(div);
 
-        deleteBtn.onclick = (e) => {
-          deleteNote(e.target.id);
+        deleteBtn.onclick = () => {
+          deleteNote(data[i].id);
           dataCreation.removeChild(div);
         };
       }

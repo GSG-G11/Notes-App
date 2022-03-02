@@ -10,7 +10,7 @@ const getData = () => {
 
 const getCategory = (id) => {
   const sql = {
-    text: 'SELECT title, note FROM notes WHERE category_id=$1;',
+    text: 'SELECT notes.id, title, note FROM notes WHERE category_id=$1;',
     values: [id],
   };
   return connection.query(sql);

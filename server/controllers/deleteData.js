@@ -1,5 +1,4 @@
 const { deleteData } = require('../database/queries');
-const { serverError } = require('./error');
 
 const deleteNote = (request, response) => {
   console.log(request.params.id);
@@ -7,8 +6,8 @@ const deleteNote = (request, response) => {
     .then(() => {
       response.redirect('/');
     })
-    .catch(() => {
-      serverError(response);
+    .catch((err) => {
+      response.json({ massage: 'server error!!!' });
     });
 };
 module.exports = deleteNote;
