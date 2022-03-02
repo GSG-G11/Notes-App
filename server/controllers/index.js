@@ -18,7 +18,7 @@ router.get('/getData', getNoteData);
 router.get('/getJSCategory', getCategoryData);
 
 router.post('/addNote', postNoteData);
-router.use('/deleteData', deleteNote);
+router.use('/deleteData/:id', deleteNote);
 router.use(pageNotFound);
 router.use(serverError);
 

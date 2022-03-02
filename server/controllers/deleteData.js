@@ -1,13 +1,13 @@
 const { deleteData } = require('../database/queries');
-const { serverError } = require('./error');
 
 const deleteNote = (request, response) => {
-  deleteData(4)
-    .then((data) => {
-      response.json(data);
+  // eslint-disable-next-line no-console
+  deleteData(request.params.id)
+    .then(() => {
+      response.redirect('/');
     })
     .catch(() => {
-      serverError(response);
+      response.json({ massage: 'server error!!!' });
     });
 };
 module.exports = deleteNote;
