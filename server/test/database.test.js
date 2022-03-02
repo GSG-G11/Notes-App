@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const connection = require('../database/config/connection');
 const { dbBuild } = require('../database/config/build');
 const { getData } = require('../database/queries/getData');
@@ -6,7 +7,7 @@ const deleteData = require('../database/queries/deleteData');
 
 beforeEach(() => dbBuild());
 
-describe('Test database fuctions', () => {
+describe('Test database functions', () => {
   test('Get notes, categorys from database', () => {
     const expected = {
       category: 'javascript',

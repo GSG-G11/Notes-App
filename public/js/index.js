@@ -1,52 +1,63 @@
 /* eslint-disable no-unused-vars */
 
+const renderAllData = (data) => {
+  const dataCreation = document.querySelector('.data-creation');
+  const card = document.createElement('div');
+  card.className = 'card';
+  const title = document.createElement('h3');
+  title.textContent = data.title;
+  card.appendChild(title);
+  const category = document.createElement('span');
+  category.textContent = data.category;
+  card.appendChild(category);
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = 'Delete Note';
+  deleteBtn.className = 'delete';
+  card.appendChild(deleteBtn);
+  const note = document.createElement('p');
+  note.textContent = data.note;
+  card.appendChild(note);
+  dataCreation.appendChild(card);
+};
 // Function To Render All The Data From The DB
 const fetchToGetAllData = () => {
-  const dataCreation = document.querySelector('.data-creation');
   fetch('/getData')
     .then((res) => res.json())
     .then((data) => {
-      // eslint-disable-next-line prefer-destructuring
       for (let i = 0; i < data.length; i += 1) {
-        const div = document.createElement('div');
-        const title = document.createElement('h1');
-        title.textContent = data[i].title;
-        div.appendChild(title);
-        const category = document.createElement('h3');
-        category.textContent = data[i].category;
-        div.appendChild(category);
-        const note = document.createElement('p');
-        note.textContent = data[i].note;
-        div.appendChild(note);
-        const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'Delete';
-        div.appendChild(deleteBtn);
-        dataCreation.appendChild(div);
+        renderAllData(data[i]);
       }
     });
 };
 
+const renderCategoryData = (data) => {
+  const dataCreation = document.querySelector('.data-creation');
+  const card = document.createElement('div');
+  card.className = 'card';
+  const title = document.createElement('h3');
+  title.textContent = data.title;
+  card.appendChild(title);
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = 'Delete Note';
+  deleteBtn.className = 'delete';
+  card.appendChild(deleteBtn);
+  const note = document.createElement('p');
+  note.textContent = data.note;
+  card.appendChild(note);
+  dataCreation.appendChild(card);
+};
+
+// Function To Render All Category From The DB
 const grtDataForSpecificCategory = (id) => {
   const value = new Headers();
   value.append('value', id);
-  const dataCreation = document.querySelector('.data-creation');
   fetch('/getJSCategory', {
     headers: value,
   })
     .then((res) => res.json())
     .then((data) => {
       for (let i = 0; i < data.length; i += 1) {
-        const div = document.createElement('div');
-        const title = document.createElement('h1');
-        title.textContent = data[i].title;
-        div.appendChild(title);
-        const note = document.createElement('p');
-        note.textContent = data[i].note;
-        div.appendChild(note);
-        const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'Delete';
-        div.appendChild(deleteBtn);
-        dataCreation.appendChild(div);
+        renderCategoryData(data[i]);
       }
     });
 };

@@ -4,59 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Note App</title>
+    <link rel="icon" href="./assets/letter-n.png" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Notes</title>
   </head>
   <body>
-    <h1>Welcome To Note App</h1>
+    <div class="header">
+      <button class="getAllData butn">All Notes</button>
+      <button class="getJavaScriptData butn">javascript</button>
+      <button class="getPythonData butn">python</button>
+      <button class="getPhpData butn">php</button>
+      <button class="getOthersData butn">others</button>
 
-    <p class="about">you can add a new note <a href="/addNotes">here</a>.</p>
-        <!-- <label for="category">Choose a category:</label>
-        <select name="category" id="category">
-          <option value="1">javascript</option>
-          <option value="2">python</option>
-          <option value="3">php</option>
-          <option value="4">others</option>
-        </select>
-          <br />
-      <section>
-        <dev class="note">
-          <h1 class="note-title">How to learn Express?</h1>
-          <p class="tesxt-note">Expert-Led Courses. Free Trial.
-             Hands-on Learning. Mobile Apps. Skill Assessments.
-              Brands: Cisco, Microsoft, AWS, ASP.NET, CompTIA,
-               MySQL, Oracle, Adobe, Android.</p>
-        </dev>
-        <dev class="note">
-          <h1 class="note-title">How to learn Express?</h1>
-          <p class="tesxt-note">Expert-Led Courses. Free Trial.
-             Hands-on Learning. Mobile Apps. Skill Assessments.
-              Brands: Cisco, Microsoft, AWS, ASP.NET, CompTIA,
-               MySQL, Oracle, Adobe, Android.</p>
-        </dev>
-        <dev class="note">
-          <h1 class="note-title">How to learn Express?</h1>
-          <p class="tesxt-note">Expert-Led Courses. Free Trial.
-             Hands-on Learning. Mobile Apps. Skill Assessments.
-              Brands: Cisco, Microsoft, AWS, ASP.NET, CompTIA,
-               MySQL, Oracle, Adobe, Android.</p>
-        </dev>
-        <dev class="note">
-          <h1 class="note-title">How to learn Express?</h1>
-          <p class="tesxt-note">Expert-Led Courses. Free Trial.
-             Hands-on Learning. Mobile Apps. Skill Assessments.
-              Brands: Cisco, Microsoft, AWS, ASP.NET, CompTIA,
-               MySQL, Oracle, Adobe, Android.</p>
-        </dev>
-      </section> -->
-      <button class="getAllData">All Data</button>
-      <button class="getJavaScriptData">javascript</button>
-      <button class="getPythonData">python</button>
-      <button class="getPhpData"> php</button>
-      <button class="getOthersData">others</button>
-      
-      <div class="data-creation"></div>
-      <script src="./js/index.js"></script>
-      <script src="./js/script.js"></script>
+      <div class="link">
+        <a href="html/addNote.html" class="addNote">Add Note</a>
+      </div>
+    </div>
+
+    <div class="WelcomeText">
+      <h2>
+        You Can Read Some Programming Notes <br />
+        OR You can<a href="html/addNote.html" class="addNote">ADD NOTE</a>
+      </h2>
+    </div>
+    <div class="data-creation"></div>
+    <script src="./js/index.js"></script>
+    <script src="./js/script.js"></script>
   </body>
-  
 </html>
