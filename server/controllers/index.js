@@ -1,5 +1,5 @@
 const express = require('express');
-const getNoteData = require('./getData');
+const { getNoteData, getCategoryData } = require('./getData');
 const postNoteData = require('./postData');
 const deleteNote = require('./deleteData');
 const { pageNotFound, serverError } = require('./error');
@@ -10,6 +10,8 @@ const router = express.Router();
 
 router.get('/addNotes', addNoteHandle);
 router.get('/getData', getNoteData);
+router.get('/getJSCategory', getCategoryData);
+
 router.post('/addNote', postNoteData);
 router.use('/deleteData', deleteNote);
 router.use(pageNotFound);
