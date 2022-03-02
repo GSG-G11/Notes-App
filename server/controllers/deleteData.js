@@ -2,9 +2,10 @@ const { deleteData } = require('../database/queries');
 const { serverError } = require('./error');
 
 const deleteNote = (request, response) => {
-  deleteData(4)
-    .then((data) => {
-      response.json(data);
+  console.log(request.params.id);
+  deleteData(request.params.id)
+    .then(() => {
+      response.redirect('/');
     })
     .catch(() => {
       serverError(response);

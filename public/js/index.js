@@ -1,5 +1,14 @@
 /* eslint-disable no-unused-vars */
 
+const deleteNote = (id) => {
+  fetch(`/deleteData/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
+
 // Function To Render All The Data From The DB
 const fetchToGetAllData = () => {
   const dataCreation = document.querySelector('.data-creation');
@@ -7,6 +16,7 @@ const fetchToGetAllData = () => {
     .then((res) => res.json())
     .then((data) => {
       // eslint-disable-next-line prefer-destructuring
+      console.log(data);
       for (let i = 0; i < data.length; i += 1) {
         const div = document.createElement('div');
         const title = document.createElement('h1');
@@ -22,6 +32,11 @@ const fetchToGetAllData = () => {
         deleteBtn.textContent = 'Delete';
         div.appendChild(deleteBtn);
         dataCreation.appendChild(div);
+
+        deleteBtn.onclick = () => {
+          deleteNote(data[i].id);
+          dataCreation.removeChild(div);
+        };
       }
     });
 };
@@ -47,6 +62,11 @@ const grtDataForSpecificCategory = (id) => {
         deleteBtn.textContent = 'Delete';
         div.appendChild(deleteBtn);
         dataCreation.appendChild(div);
+
+        deleteBtn.onclick = (e) => {
+          deleteNote(e.target.id);
+          dataCreation.removeChild(div);
+        };
       }
     });
 };

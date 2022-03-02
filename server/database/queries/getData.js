@@ -2,7 +2,7 @@ const connection = require('../config/connection');
 
 const getData = () => {
   const sql = {
-    text: 'SELECT categories.category, notes.title, notes.note FROM notes JOIN categories  ON (categories.id = notes.category_id);',
+    text: 'SELECT notes.id, categories.category, notes.title, notes.note FROM notes JOIN categories  ON (categories.id = notes.category_id);',
     values: '',
   };
   return connection.query(sql);
