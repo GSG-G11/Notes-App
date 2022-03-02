@@ -5,11 +5,12 @@ const postNoteData = (request, response) => {
   const { title, noteContent, category } = request.body;
   const categoryValue = Number(category);
   postData(title, noteContent, categoryValue)
-    .then(() => {
+    .then((data) => {
+      response.json(data);
       response.redirect('/');
     })
-    .catch(() => {
-      serverError(response);
+    .catch((err) => {
+      console.log(err);
     });
 };
 module.exports = postNoteData;
