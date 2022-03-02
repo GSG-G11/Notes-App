@@ -1,16 +1,10 @@
 const connection = require('../database/config/connection');
 const { dbBuild } = require('../database/config/build');
-const getData = require('../database/queries/getData');
+const { getData } = require('../database/queries/getData');
 const postData = require('../database/queries/postData');
 const deleteData = require('../database/queries/deleteData');
 
-test('jest is work', () => {
-  expect(1).toBe(1);
-});
-
 beforeEach(() => dbBuild());
-
-afterAll(() => connection.end());
 
 describe('Test database fuctions', () => {
   test('Get notes, categorys from database', () => {
@@ -42,3 +36,5 @@ describe('Test database fuctions', () => {
       expect(data.rows[0]).toEqual(undefined);
     }));
 });
+
+afterAll(() => connection.end());
