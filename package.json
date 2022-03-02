@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/index.js",
-    "dev": "nodemon server/index.js",
-    "test": "jest --force-exit"
+    "dev": "NODE_ENV=dev nodemon server/index.js",
+    "test": "NODE_ENV=test jest --force-exit"
   },
   "repository": {
     "type": "git",
