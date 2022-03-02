@@ -1,6 +1,15 @@
 const { deleteData } = require('../database/queries');
+const { serverError } = require('./error');
 
 const deleteNote = (request, response) => {
-  deleteData(5).then((data) => { response.json(data); }).catch((error) => console.log(error));
+
+  deleteData(4)
+    .then((data) => {
+      response.json(data);
+    })
+    .catch(() => {
+      serverError(response);
+    });
+
 };
 module.exports = deleteNote;
