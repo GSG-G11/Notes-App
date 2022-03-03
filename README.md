@@ -1,4 +1,4 @@
-# Notes-App :spiral_note_pad:
+# Notes-App :ledger:
 
 `Notes-App` It is an application that depends on the Database to display the data to the server, where you can find notes about basic informations about pupular programming languages.
 
