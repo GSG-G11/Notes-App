@@ -1,5 +1,5 @@
-const { getData, getCategory } = require('./getData');
-// const getData = require('./getData');
+const getData = require('./getData');
+const getCategory = require('./getCategory');
 const postData = require('./postData');
 const deleteData = require('./deleteData');
 
